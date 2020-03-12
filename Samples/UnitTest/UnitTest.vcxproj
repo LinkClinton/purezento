@@ -20,36 +20,36 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{5AFC9E36-5717-48C6-AE8C-5205EF046AF0}</ProjectGuid>
-    <RootNamespace>Purezento</RootNamespace>
+    <ProjectGuid>{B8198733-A956-4F26-A7FD-DB778D7D031C}</ProjectGuid>
+    <RootNamespace>UnitTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -69,52 +69,39 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(VULKAN_SDK)\Include;$(SolutionDir)\References\Code-Red;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VULKAN_SDK)\Lib;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(VULKAN_SDK)\Include;$(SolutionDir)\References\Code-Red;$(IncludePath)</IncludePath>
     <LibraryPath>$(VULKAN_SDK)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Purezento;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <LibraryPath>$(VULKAN_SDK)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Purezento;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(VULKAN_SDK)\Include;$(SolutionDir)\References\Code-Red;$(IncludePath)</IncludePath>
     <LibraryPath>$(VULKAN_SDK)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Purezento;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)Bin\$(PlatformTarget)\$(Configuration)\</IntDir>
-    <IncludePath>$(VULKAN_SDK)\Include;$(SolutionDir)\References\Code-Red;$(IncludePath)</IncludePath>
     <LibraryPath>$(VULKAN_SDK)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Purezento;$(IncludePath)</IncludePath>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);__ENABLE__DIRECTX12__;__CODE__RED__ENABLE__DIRECTX12__</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);__ENABLE__DIRECTX12__;__CODE__RED__ENABLE__DIRECTX12__</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -122,6 +109,25 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -129,7 +135,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);__ENABLE__DIRECTX12__;__CODE__RED__ENABLE__DIRECTX12__</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -139,6 +145,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -146,7 +155,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);__ENABLE__DIRECTX12__;__CODE__RED__ENABLE__DIRECTX12__</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -156,32 +165,23 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\References\Code-Red\CodeRed\CodeRed.vcxproj">
+    <ProjectReference Include="..\..\Purezento\Purezento.vcxproj">
+      <Project>{5afc9e36-5717-48c6-ae8c-5205ef046af0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\References\Code-Red\CodeRed\CodeRed.vcxproj">
       <Project>{078ae23f-1cc2-43b5-9096-f6238c363520}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\References\Code-Red\Extensions\ImGui\ImGui.vcxproj">
+    <ProjectReference Include="..\..\References\Code-Red\Extensions\ImGui\ImGui.vcxproj">
       <Project>{f3acdf05-0a62-466b-a39b-d616b30cb5c5}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Extensions\CodeRed\graphics_interface.hpp" />
-    <ClInclude Include="Extensions\ImGui\imgui.hpp" />
-    <ClInclude Include="Extensions\ImGui\imgui_impl_win32.hpp" />
-    <ClInclude Include="Interface\noncopyable.hpp" />
-    <ClInclude Include="Render\render.hpp" />
-    <ClInclude Include="Runtime\runtime.hpp" />
-    <ClInclude Include="Runtime\runtime_sharing.hpp" />
-    <ClInclude Include="Shared\font.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Extensions\CodeRed\graphics_interface.cpp" />
-    <ClCompile Include="Extensions\ImGui\imgui.cpp" />
-    <ClCompile Include="Extensions\ImGui\imgui_impl_win32.cpp" />
-    <ClCompile Include="Render\render.cpp" />
-    <ClCompile Include="Runtime\runtime.cpp" />
-    <ClCompile Include="Runtime\runtime_sharing.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

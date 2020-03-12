@@ -1,2 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Runtime">
+      <UniqueIdentifier>{5765331f-5f82-40f8-aae8-468e8e7c6a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command">
+      <UniqueIdentifier>{59f229c2-4da0-4382-972d-8076fa219eda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{429ee65f-385d-4033-8fbc-b389df4b1c2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{9f638c84-8310-4636-89bc-58006b8c1608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extensions">
+      <UniqueIdentifier>{c05e8c6b-1b1b-4343-9841-500435ad8d74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extensions\ImGui">
+      <UniqueIdentifier>{1701f66c-0540-4324-8de7-c28b3a548c2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extensions\CodeRed">
+      <UniqueIdentifier>{ecd94e7a-2ff6-4195-be44-3bb697749408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{4288e2d2-a691-4f1c-a76d-7fe764e83270}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Runtime\runtime.hpp">
+      <Filter>Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\noncopyable.hpp">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\render.hpp">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Runtime\runtime_sharing.hpp">
+      <Filter>Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\ImGui\imgui.hpp">
+      <Filter>Extensions\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\ImGui\imgui_impl_win32.hpp">
+      <Filter>Extensions\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Extensions\CodeRed\graphics_interface.hpp">
+      <Filter>Extensions\CodeRed</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\font.hpp">
+      <Filter>Shared</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Runtime\runtime.cpp">
+      <Filter>Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Runtime\runtime_sharing.cpp">
+      <Filter>Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\render.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\ImGui\imgui.cpp">
+      <Filter>Extensions\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\ImGui\imgui_impl_win32.cpp">
+      <Filter>Extensions\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Extensions\CodeRed\graphics_interface.cpp">
+      <Filter>Extensions\CodeRed</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
