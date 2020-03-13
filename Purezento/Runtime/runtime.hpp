@@ -2,6 +2,7 @@
 
 #include "../Extensions/CodeRed/graphics_interface.hpp"
 #include "../Interface/noncopyable.hpp"
+#include "../Console/console.hpp"
 #include "../Render/render.hpp"
 #include "../Shared/font.hpp"
 
@@ -35,10 +36,18 @@ namespace purezento {
 		explicit runtime(const runtime_startup& startup);
 
 		auto sharing() const noexcept -> std::shared_ptr<runtime_sharing> { return m_runtime_sharing; }
+
+		auto console() const noexcept -> std::shared_ptr<console> { return m_console; }
+
+		auto render() const noexcept -> std::shared_ptr<render> { return m_render; }
 		
 		void run_loop();
 		
 		~runtime();
+	private:
+		void update(float delta);
+
+		void render(float delta);
 	private:
 		friend class runtime_sharing;
 
@@ -49,9 +58,15 @@ namespace purezento {
 		std::shared_ptr<CodeRed::GpuRenderPass> m_render_pass;
 		std::shared_ptr<CodeRed::GpuSwapChain> m_swap_chain;
 
-		std::shared_ptr<render> m_render;
+		std::shared_ptr<purezento::render> m_render;
+
+		size_t m_current_frame_index = 0;
 		
 		void initialize_render();
+	private:
+		std::shared_ptr<purezento::console> m_console;
+
+		void initialize_console();
 	private:		
 		std::shared_ptr<runtime_sharing> m_runtime_sharing;
 		

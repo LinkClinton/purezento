@@ -4,9 +4,6 @@
     <Filter Include="Runtime">
       <UniqueIdentifier>{5765331f-5f82-40f8-aae8-468e8e7c6a12}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Command">
-      <UniqueIdentifier>{59f229c2-4da0-4382-972d-8076fa219eda}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Render">
       <UniqueIdentifier>{429ee65f-385d-4033-8fbc-b389df4b1c2b}</UniqueIdentifier>
     </Filter>
@@ -24,6 +21,9 @@
     </Filter>
     <Filter Include="Shared">
       <UniqueIdentifier>{4288e2d2-a691-4f1c-a76d-7fe764e83270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Console">
+      <UniqueIdentifier>{59f229c2-4da0-4382-972d-8076fa219eda}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +51,27 @@
     <ClInclude Include="Shared\font.hpp">
       <Filter>Shared</Filter>
     </ClInclude>
+    <ClInclude Include="Render\draw_type.hpp">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\vector.hpp">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\draw_element.hpp">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\color.hpp">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Console\console.hpp">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Console\console_text.hpp">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Console\command_callback.hpp">
+      <Filter>Console</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Runtime\runtime.cpp">
@@ -70,6 +91,12 @@
     </ClCompile>
     <ClCompile Include="Extensions\CodeRed\graphics_interface.cpp">
       <Filter>Extensions\CodeRed</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\draw_element.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Console\console.cpp">
+      <Filter>Console</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

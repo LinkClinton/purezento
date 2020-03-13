@@ -166,19 +166,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Console\command_callback.hpp" />
+    <ClInclude Include="Console\console.hpp" />
+    <ClInclude Include="Console\console_text.hpp" />
     <ClInclude Include="Extensions\CodeRed\graphics_interface.hpp" />
     <ClInclude Include="Extensions\ImGui\imgui.hpp" />
     <ClInclude Include="Extensions\ImGui\imgui_impl_win32.hpp" />
     <ClInclude Include="Interface\noncopyable.hpp" />
+    <ClInclude Include="Render\draw_element.hpp" />
+    <ClInclude Include="Render\draw_type.hpp" />
     <ClInclude Include="Render\render.hpp" />
     <ClInclude Include="Runtime\runtime.hpp" />
     <ClInclude Include="Runtime\runtime_sharing.hpp" />
+    <ClInclude Include="Shared\color.hpp" />
     <ClInclude Include="Shared\font.hpp" />
+    <ClInclude Include="Shared\vector.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Console\console.cpp" />
     <ClCompile Include="Extensions\CodeRed\graphics_interface.cpp" />
     <ClCompile Include="Extensions\ImGui\imgui.cpp" />
     <ClCompile Include="Extensions\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Render\draw_element.cpp" />
     <ClCompile Include="Render\render.cpp" />
     <ClCompile Include="Runtime\runtime.cpp" />
     <ClCompile Include="Runtime\runtime_sharing.cpp" />

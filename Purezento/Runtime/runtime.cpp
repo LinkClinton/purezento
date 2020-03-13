@@ -71,12 +71,38 @@ purezento::runtime::runtime(const runtime_startup& startup) :
 	ImGui_ImplWin32_Init(m_handle);
 	
 	initialize_render();
+	initialize_console();
 }
 
 purezento::runtime::~runtime()
 {
 	ImGui_ImplWin32_Shutdown();
 	ImGui::DestroyContext();
+
+	m_graphics_interface->queue()->waitIdle();
+}
+
+void purezento::runtime::update(float delta)
+{
+	ImGui::NewFrame();
+
+	m_console->update(delta);
+	m_render->update(delta);
+
+	ImGui::Render();
+}
+
+void purezento::runtime::render(float delta)
+{
+	m_graphics_interface->queue()->waitIdle();
+	m_graphics_interface->allocator()->reset();
+
+	m_graphics_interface->queue()->execute(
+		{ m_render->execute(m_frame_buffers[m_current_frame_index], delta) });
+	
+	m_swap_chain->present();
+
+	m_current_frame_index = (m_current_frame_index + 1) % m_swap_chain->bufferCount();
 }
 
 void purezento::runtime::initialize_render()
@@ -107,10 +133,15 @@ void purezento::runtime::initialize_render()
 		{ CodeRed::Attachment::RenderTarget(m_swap_chain->format()) }
 	);
 
-	m_render = std::make_shared<render>(
+	m_render = std::make_shared<purezento::render>(
 		m_runtime_sharing,
 		m_render_pass,
 		m_startup.width, m_startup.height, m_startup.font);
+}
+
+void purezento::runtime::initialize_console()
+{
+	m_console = std::make_shared<purezento::console>(m_runtime_sharing);
 }
 
 void purezento::runtime::run_loop()
@@ -136,6 +167,9 @@ void purezento::runtime::run_loop()
 
 		currentTime = Time::now();
 
-		//ImGui_ImplWin32_NewFrame();
+		ImGui_ImplWin32_NewFrame();
+
+		update(duration.count());
+		render(duration.count());
 	}
 }

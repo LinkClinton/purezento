@@ -16,6 +16,10 @@ namespace purezento {
 		~runtime_sharing() = default;
 		
 		auto graphics_interface() const noexcept -> std::shared_ptr<CodeRed::graphics_interface>;
+
+		auto width() const noexcept -> size_t;
+
+		auto height() const noexcept -> size_t;
 	private:
 		runtime* m_runtime;
 	};

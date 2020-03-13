@@ -14,9 +14,9 @@ namespace CodeRed {
 	class GpuRenderPass;
 	class GpuSwapChain;
 
-	class ImGuiWindows;
+	class ImGuiContext;
 
-	class graphics_interface : public purezento::noncopyable {
+	class graphics_interface final : public purezento::noncopyable {
 	public:
 		explicit graphics_interface();
 
