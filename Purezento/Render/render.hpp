@@ -4,6 +4,7 @@
 #include "../Interface/noncopyable.hpp"
 #include "../Shared/font.hpp"
 
+#include "render_callback.hpp"
 #include "draw_element.hpp"
 
 #include <memory>
@@ -11,7 +12,7 @@
 
 namespace purezento {
 
-	class render final : public noncopyable {
+	class render final : public noncopyable, public std::enable_shared_from_this<render> {
 	public:
 		explicit render(
 			const std::shared_ptr<runtime_sharing>& runtime_sharing,
@@ -21,12 +22,14 @@ namespace purezento {
 
 		~render() = default;
 
-		void update(float delta) const;
+		void update(float delta);
 		
 		auto execute(const std::shared_ptr<CodeRed::GpuFrameBuffer>& frame_buffer, float delta) const
 			-> std::shared_ptr<CodeRed::GpuGraphicsCommandList>;
 	public:
 		std::map<std::string, std::vector<draw_element>> draw_elements;
+
+		std::map<std::string, render_callback> callbacks;
 	private:
 		std::shared_ptr<runtime_sharing> m_runtime_sharing;
 

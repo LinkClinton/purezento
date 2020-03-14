@@ -49,8 +49,11 @@ auto to_im_vec2(const std::vector<purezento::vec2>& points) -> std::vector<ImVec
 	return result;
 }
 
-void purezento::render::update(float delta) const
-{	
+void purezento::render::update(float delta)
+{
+	for (const auto& callback : callbacks) 
+		callback.second.function(shared_from_this(), callback.second.context);
+	
 	auto draw_list = ImGui::GetBackgroundDrawList();
 
 	const auto thickness = m_runtime_sharing->config()->render_info().thickness;

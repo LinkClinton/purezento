@@ -81,6 +81,9 @@
     <ClInclude Include="Config\config_callback.hpp">
       <Filter>Config</Filter>
     </ClInclude>
+    <ClInclude Include="Render\render_callback.hpp">
+      <Filter>Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Runtime\runtime.cpp">

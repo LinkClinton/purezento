@@ -178,6 +178,7 @@
     <ClInclude Include="Render\draw_element.hpp" />
     <ClInclude Include="Render\draw_type.hpp" />
     <ClInclude Include="Render\render.hpp" />
+    <ClInclude Include="Render\render_callback.hpp" />
     <ClInclude Include="Runtime\runtime.hpp" />
     <ClInclude Include="Runtime\runtime_sharing.hpp" />
     <ClInclude Include="Shared\color.hpp" />
