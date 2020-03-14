@@ -12,6 +12,11 @@ auto purezento::runtime_sharing::graphics_interface() const noexcept -> std::sha
 	return m_runtime->m_graphics_interface;
 }
 
+auto purezento::runtime_sharing::config() const noexcept -> std::shared_ptr<purezento::config>
+{
+	return m_runtime->m_config;
+}
+
 auto purezento::runtime_sharing::width() const noexcept -> size_t
 {
 	return m_runtime->m_startup.width;

@@ -8,6 +8,7 @@
 namespace purezento {
 	
 	class runtime;
+	class config;
 	
 	class runtime_sharing : public noncopyable {
 	public:
@@ -17,6 +18,8 @@ namespace purezento {
 		
 		auto graphics_interface() const noexcept -> std::shared_ptr<CodeRed::graphics_interface>;
 
+		auto config() const noexcept -> std::shared_ptr<purezento::config>;
+		
 		auto width() const noexcept -> size_t;
 
 		auto height() const noexcept -> size_t;

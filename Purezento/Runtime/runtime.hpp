@@ -4,6 +4,7 @@
 #include "../Interface/noncopyable.hpp"
 #include "../Console/console.hpp"
 #include "../Render/render.hpp"
+#include "../Config/config.hpp"
 #include "../Shared/font.hpp"
 
 #include "runtime_sharing.hpp"
@@ -40,6 +41,8 @@ namespace purezento {
 		auto console() const noexcept -> std::shared_ptr<console> { return m_console; }
 
 		auto render() const noexcept -> std::shared_ptr<render> { return m_render; }
+
+		auto config() const noexcept -> std::shared_ptr<config> { return m_config; }
 		
 		void run_loop();
 		
@@ -51,6 +54,10 @@ namespace purezento {
 	private:
 		friend class runtime_sharing;
 
+		std::shared_ptr<purezento::config> m_config;
+
+		void initialize_config();
+	private:
 		std::shared_ptr<CodeRed::graphics_interface> m_graphics_interface;
 
 		std::vector<std::shared_ptr<CodeRed::GpuFrameBuffer>> m_frame_buffers;

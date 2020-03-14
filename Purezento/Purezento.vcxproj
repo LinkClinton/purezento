@@ -166,6 +166,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config\config.hpp" />
+    <ClInclude Include="Config\config_callback.hpp" />
     <ClInclude Include="Console\command_callback.hpp" />
     <ClInclude Include="Console\console.hpp" />
     <ClInclude Include="Console\console_text.hpp" />
@@ -183,6 +185,7 @@
     <ClInclude Include="Shared\vector.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Config\config.cpp" />
     <ClCompile Include="Console\console.cpp" />
     <ClCompile Include="Extensions\CodeRed\graphics_interface.cpp" />
     <ClCompile Include="Extensions\ImGui\imgui.cpp" />

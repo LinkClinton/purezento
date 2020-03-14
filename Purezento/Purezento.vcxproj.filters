@@ -25,6 +25,9 @@
     <Filter Include="Console">
       <UniqueIdentifier>{59f229c2-4da0-4382-972d-8076fa219eda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{23e2b8b1-e618-4aba-b398-f795882c73cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Runtime\runtime.hpp">
@@ -72,6 +75,12 @@
     <ClInclude Include="Console\command_callback.hpp">
       <Filter>Console</Filter>
     </ClInclude>
+    <ClInclude Include="Config\config.hpp">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Config\config_callback.hpp">
+      <Filter>Config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Runtime\runtime.cpp">
@@ -97,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="Console\console.cpp">
       <Filter>Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Config\config.cpp">
+      <Filter>Config</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

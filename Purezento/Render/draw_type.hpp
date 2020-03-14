@@ -14,21 +14,23 @@ namespace purezento {
 		draw_call,
 		rectangle,
 		triangle,
+		polyline,
 		circle,
 		line,
+		text,
 		nops
 	};
 
-	using draw_call_function = std::function<void(void* ctx, float delta)>;
+	using draw_call_function = std::function<void(const std::shared_ptr<void>& ctx, float delta)>;
 
 	struct draw_call {
 		draw_call_function function;
 
-		void* context = nullptr;
+		std::shared_ptr<void> context;
 
 		draw_call() = default;
 
-		draw_call(const draw_call_function& function, void* context) : function(function), context(context) {}
+		draw_call(const draw_call_function& function, const std::shared_ptr<void>& context) : function(function), context(context) {}
 	};
 	
 	struct rectangle {
@@ -49,6 +51,14 @@ namespace purezento {
 
 		triangle(const vec2& p0, const vec2& p1, const vec2& p2) : points({ p0, p1, p2 }) {}
 	};
+
+	struct polyline {
+		std::vector<vec2> points = { vec2(0,0), vec2(0,1), vec2(1,0) };
+
+		polyline() = default;
+
+		polyline(const std::vector<vec2>& points) : points(points) {}
+	};
 	
 	struct circle {
 		float radius = 1;
@@ -67,5 +77,14 @@ namespace purezento {
 		line(const std::array<vec2, 2>& points) : points(points) {}
 		
 		line(const vec2& p0, const vec2& p1) : points({ p0, p1 }) {}
+	};
+
+	struct text {
+		std::string text_content = "";
+		vec2 position = vec2(0, 0);
+
+		text() = default;
+
+		text(const std::string& text, const vec2& position) : text_content(text), position(position) {}
 	};
 }

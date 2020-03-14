@@ -9,6 +9,8 @@ namespace purezento {
 
 		color(const float red, const float green, const float blue, const float alpha = 1) :
 			red(red), green(green), blue(blue), alpha(alpha) {}
+
+		static auto black() -> color { return color(0, 0, 0, 1); }
 	};
 	
 }

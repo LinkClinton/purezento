@@ -1,23 +1,28 @@
 #include "console.hpp"
 
 #include "../Extensions/ImGui/imgui.hpp"
+#include "../Config/config.hpp"
 
 purezento::console::console(
 	const std::shared_ptr<runtime_sharing>& sharing) :
-	m_runtime_sharing(sharing), m_width(sharing->width() * 1.0f), m_height(sharing->height() * 0.3f)
+	m_runtime_sharing(sharing)
 {
 	std::memset(m_buffer.data(), 0, m_buffer.size() * sizeof(char));
 }
 
 void purezento::console::update(float delta)
 {
-	ImGui::Begin("Console", 0,
+	if (!m_runtime_sharing->config()->m_console_window_info.visible) return;
+
+	ImGui::Begin("Console", &m_runtime_sharing->config()->m_console_window_info.visible,
 		ImGuiWindowFlags_NoCollapse |
-		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoMove);
 
-	ImGui::SetWindowSize(ImVec2(m_width, m_height));
-	ImGui::SetWindowPos(ImVec2(0, m_runtime_sharing->height() - m_height));
+	const auto width = m_runtime_sharing->config()->m_console_window_info.size.x;
+	const auto height = m_runtime_sharing->config()->m_console_window_info.size.y;
+	
+	ImGui::SetWindowSize(ImVec2(width, height));
+	ImGui::SetWindowPos(ImVec2(0, m_runtime_sharing->height() - height));
 
 	const float footer_height_to_reserve = ImGui::GetStyle().ItemSpacing.y + ImGui::GetFrameHeightWithSpacing();
 
@@ -46,7 +51,11 @@ void purezento::console::update(float delta)
 	ImGui::Separator();
 
 	bool reclaim_focus = false;
-	
+
+	ImGui::AlignTextToFramePadding();
+	ImGui::Text("command :"); ImGui::SameLine();
+
+	ImGui::AlignTextToFramePadding();
 	if (ImGui::InputText("##Input", m_buffer.data(), m_buffer.size(), ImGuiInputTextFlags_EnterReturnsTrue)) {
 		execute_command(m_buffer.data());
 		

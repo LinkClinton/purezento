@@ -60,6 +60,19 @@ auto purezento::draw_element::triangle(
 	return element;
 }
 
+auto purezento::draw_element::polyline(
+	const purezento::polyline& polyline, 
+	const purezento::color& color) -> draw_element
+{
+	draw_element element;
+
+	element.type = draw_type::polyline;
+	element.polyline_data = polyline;
+	element.color = color;
+
+	return element;
+}
+
 auto purezento::draw_element::circle(
 	const purezento::circle& circle, 
 	const purezento::color& color,
@@ -82,6 +95,19 @@ auto purezento::draw_element::line(
 
 	element.type = draw_type::line;
 	element.line_data = line;
+	element.color = color;
+
+	return element;
+}
+
+auto purezento::draw_element::text(
+	const purezento::text& text, 
+	const purezento::color& color) -> draw_element
+{
+	draw_element element;
+
+	element.type = draw_type::text;
+	element.text_data = text;
 	element.color = color;
 
 	return element;

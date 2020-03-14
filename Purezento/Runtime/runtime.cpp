@@ -69,7 +69,8 @@ purezento::runtime::runtime(const runtime_startup& startup) :
 	
 	ImGui::CreateContext();
 	ImGui_ImplWin32_Init(m_handle);
-	
+
+	initialize_config();
 	initialize_render();
 	initialize_console();
 }
@@ -86,6 +87,7 @@ void purezento::runtime::update(float delta)
 {
 	ImGui::NewFrame();
 
+	m_config->update(delta);
 	m_console->update(delta);
 	m_render->update(delta);
 
@@ -103,6 +105,11 @@ void purezento::runtime::render(float delta)
 	m_swap_chain->present();
 
 	m_current_frame_index = (m_current_frame_index + 1) % m_swap_chain->bufferCount();
+}
+
+void purezento::runtime::initialize_config()
+{
+	m_config = std::make_shared<purezento::config>(m_runtime_sharing);
 }
 
 void purezento::runtime::initialize_render()

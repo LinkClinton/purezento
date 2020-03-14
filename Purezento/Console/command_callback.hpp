@@ -12,18 +12,18 @@ namespace purezento {
 		void(
 			const std::vector<std::string> & arguments,
 			const std::shared_ptr<console>& console,
-			void* ctx)>;
+			const std::shared_ptr<void>& ctx)>;
 
 	struct command_callback {
 		command_callback_function function;
 
-		void* context = nullptr;
+		std::shared_ptr<void> context;
 
 		command_callback() = default;
 
 		command_callback(
 			const command_callback_function& function,
-			void* context) :
+			const std::shared_ptr<void>& context) :
 			function(function), context(context) {}
 	};
 }

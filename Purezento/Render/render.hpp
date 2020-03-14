@@ -7,6 +7,7 @@
 #include "draw_element.hpp"
 
 #include <memory>
+#include <map>
 
 namespace purezento {
 
@@ -25,7 +26,7 @@ namespace purezento {
 		auto execute(const std::shared_ptr<CodeRed::GpuFrameBuffer>& frame_buffer, float delta) const
 			-> std::shared_ptr<CodeRed::GpuGraphicsCommandList>;
 	public:
-		std::vector<draw_element> draw_elements;
+		std::map<std::string, std::vector<draw_element>> draw_elements;
 	private:
 		std::shared_ptr<runtime_sharing> m_runtime_sharing;
 

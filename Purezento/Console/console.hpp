@@ -31,8 +31,6 @@ namespace purezento {
 
 		std::array<char, 2000> m_buffer;
 		
-		float m_width, m_height;
-
 		bool m_scroll_to_bottom = false;
 	};
 	
