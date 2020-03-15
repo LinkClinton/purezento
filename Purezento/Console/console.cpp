@@ -16,6 +16,7 @@ void purezento::console::update(float delta)
 
 	ImGui::Begin("Console", &m_runtime_sharing->config()->m_console_window_info.visible,
 		ImGuiWindowFlags_NoCollapse |
+		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoMove);
 
 	const auto width = m_runtime_sharing->config()->m_console_window_info.size.x;
