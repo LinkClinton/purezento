@@ -45,7 +45,7 @@ Render is a simple renderer to render simple objects. For example, circle, text,
 
 Render provide two public members.
 
-- `callbacks` : We will invoke them in the loop of program every time. You can use this callback function to update the `draw_elements`. It is a `std::vector<callback>`.
+- `callbacks` : We will invoke them in the loop of program every time. You can use this callback function to update the `draw_elements`. It is a `std::vector<std::string, callback>`.
 
 - `draw_elements` : Render lists indicate the elements we will render. It is a `std::map<std::string, std::vector<draw_element>>`. The first is a group name of `draw_elements` and the second is an array of `draw_element`.
 
